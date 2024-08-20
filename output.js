@@ -1,0 +1,1 @@
+console.log("file1 output"),console.log("file2 output");
