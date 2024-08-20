@@ -35,7 +35,7 @@ function bundleFiles(filePaths, outputPath, shouldMinify) {
   }
 
   fs.writeFileSync(outputPath, bundledContent, 'utf-8');
-  console.log(`Bundled file created at: ${outputPath}`);
+  console.log("Bundled file created at: " , outputPath);
 }
 
 function main() {
