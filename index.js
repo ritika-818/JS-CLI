@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const fs = require('fs');
 const path = require('path');
@@ -16,8 +17,7 @@ bundle <options> [list of source JavaScript files]
 Options:
 
 --minify: Removes all unnecessary characters from JavaScript source code without altering its functionality.
---out: Specifies the path of the ou
-tput bundled file.
+--out: Specifies the path of the output bundled file.
   `);
 }
 
@@ -53,9 +53,10 @@ function main() {
   args.forEach((arg, index) => {
     if (arg === '--minify') {
       shouldMinify = true;
+      outputPath = args[index + 1];
     } else if (arg === '--out') {
       outputPath = args[index + 1];
-    } else if (index === 0 || args[index - 1] !== '--out') {
+    } else if (index === 0 || args[index - 1] !== '--out' || args[index - 1] !== '--minify') {
       if (arg !== outputPath) {
         filePaths.push(arg);
       }
